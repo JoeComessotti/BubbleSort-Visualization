@@ -55,6 +55,9 @@ int main() {
 	initNumbers();
 	initRectangles();
 
+	// Represents the cumber that the algorithm is currently checking 
+	int currentNumber = 0;
+
 	// Game Loop
 	while (window.isOpen()) {
 		
@@ -71,13 +74,11 @@ int main() {
 
 		// Updates
 		// The bubble sort algorithm
-		// Loops through each of the numbers
-		for (int i = 0; i < 400 - 1; i++) {
-			
+		// If the current number isnt out of bounds (larger than the array)
+		if (currentNumber < 399) {
 			// If the next number is bigger than the current one, then swap them
-			if (numbers[i] > numbers[i + 1]) {
-				swap(&numbers[i], &numbers[i + 1]);
-				
+			if (numbers[currentNumber] > numbers[currentNumber + 1]) {
+				swap(&numbers[currentNumber], &numbers[currentNumber + 1]);
 			}
 			// Update the rectangles to represent the current state of the numbers list as it is being sorted
 			for (int j = 0; j < 400 - 1; j++) {
@@ -88,7 +89,14 @@ int main() {
 				rectangles[j].setSize(sf::Vector2f(1.f, height));
 				rectangles[j].setFillColor(sf::Color::White);
 			}
-			
+		}
+		// If the current number has reached the end of the array, then reset it
+		// Otherwise, add another number to it so that it continues through the array
+		if (currentNumber >= 399) {
+			currentNumber = 0;
+		}
+		else {
+			currentNumber += 1;
 		}
 		
 		// Clear the window so that it is reset for the next loop

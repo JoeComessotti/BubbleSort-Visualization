@@ -4,7 +4,7 @@ This project is a visualization of the bubble sort algorithm. It was made using 
 
 REQUIREMENTS
 ------------
-This project needs to be compiled in a C++ compiler in order to use it.
+This project needs to be configured for SFML and compiled in a C++ compiler in order to use it.
 If you plan on running it in an IDE, you may need to configure your IDE for SMFL.
 
 CREATION
